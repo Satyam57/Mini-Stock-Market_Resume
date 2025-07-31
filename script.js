@@ -1,4 +1,4 @@
-const apiKey = '46HRZE3I23GFYD66'; // Use your own free key from Alpha Vantage
+const apiKey = '4XXXXXXXXXXXXXX';
 const stockChartCanvas = document.getElementById('stockChart');
 const stockSymbolInput = document.getElementById('stockSymbol');
 const searchBtn = document.getElementById('searchBtn');
@@ -14,14 +14,14 @@ async function fetchStockData(symbol) {
     stockInfoDiv.innerHTML = '';
     chartTitle.innerText = `Stock Price Chart for ${symbol.toUpperCase()}`;
 
-    // --- FIX: Switched to the free TIME_SERIES_DAILY endpoint ---
+    
     const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}&outputsize=compact`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
         
-        // This error checking will now correctly handle invalid symbols or API key issues.
+        
         if (data['Error Message'] || !data['Time Series (Daily)']) {
             let errorMessage = 'Could not retrieve data. The stock symbol may be invalid.';
             if (data['Note']) {
