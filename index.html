@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Stock Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Mini Stock Market</h1>
+            <p class="text-gray-400 mt-2">Real-time stock data at your fingertips</p>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="max-w-lg mx-auto mb-8 flex items-center bg-gray-800 rounded-full shadow-lg p-2">
+            <input type="text" id="stockSymbol" placeholder="Enter Stock Symbol (e.g., AAPL)" class="search-input w-full bg-transparent border-none text-white px-4 py-2 rounded-full">
+            <button id="searchBtn" class="search-button bg-red-600 text-white font-semibold py-2 px-6 rounded-full">Search</button>
+        </div>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Stock Chart -->
+            <div class="lg:col-span-2 bg-gray-900 p-4 md:p-6 rounded-2xl shadow-2xl relative">
+                 <div id="loader" class="loader hidden"></div>
+                <h2 id="chart-title" class="text-2xl font-semibold mb-4 text-white">Stock Price Chart</h2>
+                <div class="glowing-red-chart h-96">
+                    <canvas id="stockChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Stock Info -->
+            <div class="bg-gray-900 p-4 md:p-6 rounded-2xl shadow-2xl flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4 text-white">Stock Details</h2>
+                    <div id="stockInfo" class="space-y-4">
+                        <!-- Stock info will be dynamically inserted here -->
+                        <p class="text-lg text-gray-400">Search for a stock to see details.</p>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-500 mt-6 text-center">
+                    Data provided by Alpha Vantage.
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
